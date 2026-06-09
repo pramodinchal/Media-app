@@ -3,7 +3,7 @@ import axios from 'axios';
 const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY;
 const PEXELS_KEY = import.meta.env.VITE_PEXELS_KEY;
 
-export async function fetchPhotos(query, page = 1, per_page = 20) {
+export async function fetchPhotos(query, page = 1, per_page = 18) {
 
    const response = await axios.get(
       'https://api.unsplash.com/search/photos',
@@ -20,7 +20,7 @@ export async function fetchPhotos(query, page = 1, per_page = 20) {
    
 }
 
-export async function fetchVideos(query, per_page = 15) {
+export async function fetchVideos(query, per_page = 30) {
 
    const response = await axios.get(
       'https://api.pexels.com/videos/search',

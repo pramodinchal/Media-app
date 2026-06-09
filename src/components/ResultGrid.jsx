@@ -8,6 +8,7 @@ import {
 } from '../redux/features/searchSlice'
 
 import { useDispatch, useSelector } from 'react-redux'
+import ResultCard from './ResultCard'
 
 const ResultGrid = () => {
 
@@ -40,7 +41,8 @@ const ResultGrid = () => {
                         type: 'photo',
                         title: item.alt_description,
                         thumbnail: item.urls.small,
-                        src: item.urls.full
+                        src: item.urls.full,
+                        url:item.links.html
                     }))
                      console.log(data)
                 }
@@ -54,7 +56,8 @@ const ResultGrid = () => {
                         type: 'video',
                         title: item.user.name || 'video',
                         thumbnail: item.image,
-                        src: item.video_files[0].link
+                        src: item.video_files[0].link,
+                        url:item.url
                     }))
                 }
 
@@ -81,11 +84,12 @@ const ResultGrid = () => {
     if (loading) return <h1>Loading.....</h1>
 
     return (
-        <div>
+        <div className='flex flex-wrap justify-center gap-6 overflow-auto'>
             {
                 results.map((item, idx) => (
                     <h1 key={idx}>
-                        {item.title}
+                       
+                       <ResultCard item={item}/>
                     </h1>
                 ))
             }

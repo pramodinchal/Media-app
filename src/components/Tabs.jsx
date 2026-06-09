@@ -7,7 +7,7 @@ const Tabs = () => {
     const dispatch = useDispatch()
     const activeTab = useSelector((state)=>state.search.activeTab)
     return (
-        <div className='flex gap-120 p-10'>
+        <div className='flex justify-between p-10'>
             {tabs.map((elem, idx) => {
                 return (<button className={`${(activeTab == elem?'bg-gray-400' : 'bg-emerald-500')} transition cursor-pointer p-2 rounded active:scale-95 uppercase`} 
                 key={idx}
